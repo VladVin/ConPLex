@@ -136,6 +136,12 @@ class SimpleCoembedding(nn.Module):
             return self.classify(drug, target)
         else:
             return self.regress(drug, target)
+        
+    def project_drug(self, drug):
+        return self.drug_projector(drug)
+    
+    def project_target(self, target):
+        return self.target_projector(target)
 
     def regress(self, drug, target):
         drug_projection = self.drug_projector(drug)

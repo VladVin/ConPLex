@@ -143,7 +143,7 @@ class ProtBertFeaturizer(Featurizer):
     def _feat_to_device(self, pipe, device):
         from transformers import pipeline
 
-        if device.type == "cpu":
+        if device.type == "cpu" or device.type == "mps":
             d = -1
         else:
             d = device.index
